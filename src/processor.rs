@@ -59,6 +59,10 @@ impl Processor {
 
         Escrow::pack(escrow_info, &mut escrow_account.try_borrow_mut_data()?)?;
 
+        escrow_info.expected_amount = amount;
+        Escrow::pack(escrow_info, &mut escrow_account.try_borrow_mut_data()?)?;
+        let (pda, _bump_seed) = Pubkey::find_program_address(&[b"escrow"], program_id);
+        
         Ok(())
     }
 }

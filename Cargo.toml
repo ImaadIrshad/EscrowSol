@@ -14,3 +14,4 @@ arrayref = "0.3.6"
 
 [lib]
 crate-type = ["cdylib", "lib"]
+path = "src/lib.rs"
